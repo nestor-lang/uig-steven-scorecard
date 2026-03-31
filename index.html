@@ -93,24 +93,8 @@
 <script>
 
   // ─── DATA ────────────────────────────────────────────────────────────────────
-  // To add a new month, copy the Jan 2026 block and update the values.
-  // OpenClaw should push to this object via data.json (see README below).
-  const DATA = {
-    "Jan 2026": {
-      dispositions: {
-        "Contact - Wrong Number": 553,
-        "Contact - Dead": 147,
-        "Contact - Passive": 73,
-        "Contact - Live Transfer": 22,
-        "Contact - Appointment Booked": 35,
-        "No Contact - Passive": 260,
-        "Non-Disposed Yet": 29
-      },
-      totalBooked: 35,
-      totalShowed: 24
-    }
-    // "Feb 2026": { dispositions: { ... }, totalBooked: 0, totalShowed: 0 },
-  };
+  // Loaded from data.json. OpenClaw updates data.json via GitHub API monthly.
+  let DATA = {};
   // ─────────────────────────────────────────────────────────────────────────────
 
   const MONTH_COLORS = [
@@ -132,7 +116,7 @@
     "Non-Disposed Yet":             { bg: "#FAEEDA", color: "#854F0B", label: "Non-disposed yet" }
   };
 
-  const MONTHS = Object.keys(DATA);
+  let MONTHS = Object.keys(DATA);
   let selectedMonth = MONTHS[MONTHS.length - 1];
 
   function bookedRate(entry) {
@@ -272,11 +256,24 @@
     renderBreakdown();
   };
 
-  renderMonthSelect();
-  renderLegend();
-  renderMetrics();
-  renderBreakdown();
-  renderTrendChart();
+  fetch('data.json')
+    .then(r => r.json())
+    .then(json => {
+      DATA = json;
+      const months = Object.keys(DATA);
+      selectedMonth = months[months.length - 1];
+      MONTHS.length = 0;
+      MONTHS.push(...months);
+      renderMonthSelect();
+      renderLegend();
+      renderMetrics();
+      renderBreakdown();
+      renderTrendChart();
+    })
+    .catch(err => {
+      document.querySelector('.page').innerHTML =
+        '<p style="color:#A32D2D;padding:2rem;">Failed to load data.json — ' + err.message + '</p>';
+    });
 </script>
 </body>
 </html>

@@ -1,0 +1,15 @@
+{
+  "Jan 2026": {
+    "dispositions": {
+      "Contact - Wrong Number": 553,
+      "Contact - Dead": 147,
+      "Contact - Passive": 73,
+      "Contact - Live Transfer": 22,
+      "Contact - Appointment Booked": 35,
+      "No Contact - Passive": 260,
+      "Non-Disposed Yet": 29
+    },
+    "totalBooked": 35,
+    "totalShowed": 24
+  }
+}
