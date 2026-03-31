@@ -10,7 +10,9 @@
       "Non-Disposed Yet": 0
     },
     "totalBooked": 31,
-    "totalShowed": 4
+    "totalShowed": 4,
+    "totalLT": 19,
+    "totalApptBooked": 12
   },
   "Feb 2026": {
     "dispositions": {
@@ -24,7 +26,9 @@
       "Non-Disposed Yet": 0
     },
     "totalBooked": 57,
-    "totalShowed": 35
+    "totalShowed": 35,
+    "totalLT": 21,
+    "totalApptBooked": 36
   },
   "Mar 2026": {
     "dispositions": {
@@ -38,6 +42,8 @@
       "Non-Disposed Yet": 0
     },
     "totalBooked": 55,
-    "totalShowed": 20
+    "totalShowed": 20,
+    "totalLT": 33,
+    "totalApptBooked": 22
   }
 }
