@@ -205,10 +205,7 @@
 
   let trendChart = null;
   function renderTrendChart() {
-    const booked = MONTHS.map(m => {
-      const d = DATA[m].dispositions;
-      return (d["Contact - Live Transfer"] || 0) + (d["Contact - Appointment Booked"] || 0);
-    });
+    const rates = MONTHS.map(m => parseFloat(bookedRate(DATA[m]).toFixed(1)));
     const colors = MONTHS.map((_, i) => MONTH_COLORS[i % MONTH_COLORS.length]);
     if (trendChart) trendChart.destroy();
     trendChart = new Chart(document.getElementById('trendChart'), {
@@ -217,7 +214,7 @@
       data: {
         labels: MONTHS,
         datasets: [{
-          data: booked,
+          data: rates,
           backgroundColor: colors,
           borderRadius: 6,
           borderSkipped: false,
@@ -236,15 +233,14 @@
             borderColor: '#D3D1C7', borderWidth: 1, padding: 10,
             callbacks: {
               label: ctx => {
-                const rate = bookedRate(DATA[MONTHS[ctx.dataIndex]]);
-                return [`  ${ctx.parsed.y} contacts booked`, `  ${rate.toFixed(1)}% booked rate`];
+                return [`  ${ctx.parsed.y}% booked rate`];
               }
             }
           }
         },
         scales: {
           x: { ticks: { autoSkip: false, maxRotation: 0, font: { size: 11 }, color: '#888780' }, grid: { display: false }, border: { display: false } },
-          y: { ticks: { font: { size: 11 }, color: '#888780', maxTicksLimit: 5 }, grid: { color: 'rgba(180,178,169,0.2)' }, border: { display: false } }
+          y: { ticks: { font: { size: 11 }, color: '#888780', maxTicksLimit: 5, callback: v => v + '%' }, grid: { color: 'rgba(180,178,169,0.2)' }, border: { display: false }, min: 0 }
         }
       }
     });
@@ -277,3 +273,4 @@
 </script>
 </body>
 </html>
+
