@@ -233,7 +233,10 @@
             borderColor: '#D3D1C7', borderWidth: 1, padding: 10,
             callbacks: {
               label: ctx => {
-                return [`  ${ctx.parsed.y}% booked rate`];
+                const m = MONTHS[ctx.dataIndex];
+                const d = DATA[m].dispositions;
+                const booked = (d["Contact - Live Transfer"] || 0) + (d["Contact - Appointment Booked"] || 0);
+                return [`  ${ctx.parsed.y}% booked rate`, `  ${booked} contacts booked`];
               }
             }
           }
