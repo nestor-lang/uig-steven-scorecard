@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nurture Scorecard — Steven</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f8f7f4; color: #2C2C2A; min-height: 100vh; }
+    .page { padding: 2rem 1.5rem; max-width: 960px; margin: 0 auto; }
+    .header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 2rem; }
+    .header-left h1 { font-size: 20px; font-weight: 500; color: #2C2C2A; }
+    .header-left p { font-size: 13px; color: #888780; margin-top: 4px; }
+    .month-select { font-size: 13px; padding: 6px 12px; border-radius: 8px; border: 0.5px solid #B4B2A9; background: #fff; color: #2C2C2A; cursor: pointer; }
+    .metrics { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin-bottom: 1.25rem; }
+    .metric-card { background: #f1efe8; border-radius: 8px; padding: 1rem; }
+    .metric-card .label { font-size: 12px; color: #888780; margin-bottom: 6px; }
+    .metric-card .value { font-size: 24px; font-weight: 500; color: #2C2C2A; }
+    .metric-card .value.green { color: #0F6E56; }
+    .metric-card .sub { font-size: 11px; color: #888780; margin-top: 4px; }
+    .section { background: #fff; border: 0.5px solid rgba(0,0,0,0.1); border-radius: 12px; padding: 1.25rem; margin-bottom: 1.25rem; }
+    .section-title { font-size: 14px; font-weight: 500; color: #2C2C2A; margin-bottom: 4px; }
+    .section-sub { font-size: 12px; color: #888780; margin-bottom: 1.25rem; }
+    .chart-wrap { position: relative; width: 100%; height: 260px; }
+    .legend { display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 1.25rem; }
+    .legend-item { display: flex; align-items: center; gap: 6px; font-size: 12px; color: #888780; }
+    .legend-sq { width: 10px; height: 10px; border-radius: 2px; flex-shrink: 0; }
+    .disp-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .disp-col-label { font-size: 11px; font-weight: 500; color: #888780; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 8px; }
+    .disp-col { display: flex; flex-direction: column; gap: 8px; }
+    .disp-row { display: flex; justify-content: space-between; align-items: center; padding: 9px 12px; border-radius: 8px; }
+    .disp-right-val { display: flex; align-items: baseline; gap: 10px; min-width: 80px; justify-content: flex-end; }
+    .disp-count { font-size: 13px; font-weight: 500; }
+    .disp-pct { font-size: 11px; font-weight: 400; opacity: 0.6; }
+    .divider { border: none; border-top: 0.5px solid rgba(0,0,0,0.08); margin: 1.25rem 0; }
+    .totals-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+    .total-card { background: #f1efe8; border-radius: 8px; padding: 1rem; }
+    .total-card .t-label { font-size: 12px; color: #888780; margin-bottom: 6px; }
+    .total-card .t-value { font-size: 28px; font-weight: 500; color: #2C2C2A; }
+    .total-card .t-value.green { color: #0F6E56; }
+    .total-card .t-sub { font-size: 11px; color: #888780; margin-top: 4px; }
+    @media (max-width: 600px) {
+      .metrics { grid-template-columns: repeat(2, 1fr); }
+      .disp-cols { grid-template-columns: 1fr; }
+      .totals-grid { grid-template-columns: repeat(3, 1fr); }
+      .header { flex-direction: column; gap: 1rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+  <div class="header">
+    <div class="header-left">
+      <h1>Nurture scorecard — Steven</h1>
+      <p>Passive pipeline performance · All time by month</p>
+    </div>
+    <div style="display:flex;align-items:center;gap:8px;">
+      <span style="font-size:12px;color:#888780">Viewing</span>
+      <select class="month-select" id="monthSelect" onchange="selectMonth(this.value)"></select>
+    </div>
+  </div>
+
+  <div class="metrics" id="metrics-row"></div>
+
+  <div class="section">
+    <div class="section-title">Booked rate — all months</div>
+    <div class="section-sub">Live transfers + appointments booked as a % of total workable contacts</div>
+    <div class="legend" id="chart-legend"></div>
+    <div class="chart-wrap"><canvas id="trendChart"></canvas></div>
+  </div>
+
+  <div class="section">
+    <div class="section-title" id="disp-title"></div>
+    <div class="section-sub" id="disp-sub"></div>
+    <div class="disp-cols">
+      <div>
+        <div class="disp-col-label">Not worked</div>
+        <div class="disp-col" id="disp-left"></div>
+      </div>
+      <div>
+        <div class="disp-col-label">Engaged</div>
+        <div class="disp-col" id="disp-right"></div>
+      </div>
+    </div>
+    <hr class="divider">
+    <div style="font-size:13px;font-weight:500;color:#2C2C2A;margin-bottom:4px;" id="totals-title"></div>
+    <div style="font-size:12px;color:#888780;margin-bottom:1rem;">All appointments booked and show rate for the month, regardless of lead origin</div>
+    <div class="totals-grid" id="totals-row"></div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+
+  // ─── DATA ────────────────────────────────────────────────────────────────────
+  // To add a new month, copy the Jan 2026 block and update the values.
+  // OpenClaw should push to this object via data.json (see README below).
+  const DATA = {
+    "Jan 2026": {
+      dispositions: {
+        "Contact - Wrong Number": 553,
+        "Contact - Dead": 147,
+        "Contact - Passive": 73,
+        "Contact - Live Transfer": 22,
+        "Contact - Appointment Booked": 35,
+        "No Contact - Passive": 260,
+        "Non-Disposed Yet": 29
+      },
+      totalBooked: 35,
+      totalShowed: 24
+    }
+    // "Feb 2026": { dispositions: { ... }, totalBooked: 0, totalShowed: 0 },
+  };
+  // ─────────────────────────────────────────────────────────────────────────────
+
+  const MONTH_COLORS = [
+    '#378ADD','#1D9E75','#7F77DD','#D85A30',
+    '#BA7517','#D4537E','#639922','#5DCAA5',
+    '#AFA9EC','#F0997B','#97C459','#EF9F27'
+  ];
+
+  const LEFT_KEYS  = ["Contact - Dead","Contact - Wrong Number","No Contact - Passive","Non-Disposed Yet"];
+  const RIGHT_KEYS = ["Contact - Passive","Contact - Appointment Booked","Contact - Live Transfer"];
+
+  const DISP_STYLES = {
+    "Contact - Wrong Number":       { bg: "#FAECE7", color: "#993C1D", label: "Wrong number" },
+    "Contact - Dead":               { bg: "#FCEBEB", color: "#A32D2D", label: "Dead" },
+    "Contact - Passive":            { bg: "#E6F1FB", color: "#185FA5", label: "Passive — contacted" },
+    "Contact - Live Transfer":      { bg: "#E1F5EE", color: "#0F6E56", label: "Live transfer" },
+    "Contact - Appointment Booked": { bg: "#EAF3DE", color: "#3B6D11", label: "Appointment booked" },
+    "No Contact - Passive":         { bg: "#F1EFE8", color: "#5F5E5A", label: "No contact — passive" },
+    "Non-Disposed Yet":             { bg: "#FAEEDA", color: "#854F0B", label: "Non-disposed yet" }
+  };
+
+  const MONTHS = Object.keys(DATA);
+  let selectedMonth = MONTHS[MONTHS.length - 1];
+
+  function bookedRate(entry) {
+    const d = entry.dispositions || entry;
+    const num = (d["Contact - Live Transfer"] || 0) + (d["Contact - Appointment Booked"] || 0);
+    const den = (d["Contact - Passive"] || 0) + (d["Contact - Live Transfer"] || 0)
+              + (d["Contact - Appointment Booked"] || 0) + (d["No Contact - Passive"] || 0);
+    return den === 0 ? 0 : (num / den * 100);
+  }
+
+  function renderMonthSelect() {
+    document.getElementById('monthSelect').innerHTML = MONTHS.map(m =>
+      `<option value="${m}" ${m === selectedMonth ? 'selected' : ''}>${m}</option>`
+    ).join('');
+  }
+
+  function renderLegend() {
+    document.getElementById('chart-legend').innerHTML = MONTHS.map((m, i) =>
+      `<div class="legend-item"><span class="legend-sq" style="background:${MONTH_COLORS[i % MONTH_COLORS.length]}"></span>${m}</div>`
+    ).join('');
+  }
+
+  function renderMetrics() {
+    const entry = DATA[selectedMonth];
+    const d = entry.dispositions;
+    const rate = bookedRate(entry);
+    const passive = (d["Contact - Passive"] || 0) + (d["No Contact - Passive"] || 0);
+    document.getElementById('metrics-row').innerHTML = `
+      <div class="metric-card"><div class="label">Booked rate</div><div class="value green">${rate.toFixed(1)}%</div><div class="sub">LT + appt / eligible</div></div>
+      <div class="metric-card"><div class="label">Live transfers</div><div class="value">${d["Contact - Live Transfer"] || 0}</div><div class="sub">Connected to closer</div></div>
+      <div class="metric-card"><div class="label">Appts booked</div><div class="value">${d["Contact - Appointment Booked"] || 0}</div><div class="sub">Scheduled follow-ups</div></div>
+      <div class="metric-card"><div class="label">Passive pipeline</div><div class="value">${passive.toLocaleString()}</div><div class="sub">Total workable</div></div>
+    `;
+  }
+
+  function dispRow(k, v, total) {
+    const s = DISP_STYLES[k] || { bg: "#F1EFE8", color: "#5F5E5A", label: k };
+    const pct = total > 0 ? (v / total * 100).toFixed(1) : '0.0';
+    return `<div class="disp-row" style="background:${s.bg}">
+      <span style="font-size:13px;color:${s.color}">${s.label}</span>
+      <div class="disp-right-val">
+        <span class="disp-count" style="color:${s.color}">${v.toLocaleString()}</span>
+        <span class="disp-pct" style="color:${s.color}">${pct}%</span>
+      </div>
+    </div>`;
+  }
+
+  function renderBreakdown() {
+    const entry = DATA[selectedMonth];
+    const d = entry.dispositions;
+    const total = Object.values(d).reduce((a, b) => a + b, 0);
+    document.getElementById('disp-title').textContent = `${selectedMonth} — leads dispositioned this month`;
+    document.getElementById('disp-sub').textContent = `${total.toLocaleString()} total contacts`;
+    document.getElementById('disp-left').innerHTML  = LEFT_KEYS.map(k  => dispRow(k, d[k] || 0, total)).join('');
+    document.getElementById('disp-right').innerHTML = RIGHT_KEYS.map(k => dispRow(k, d[k] || 0, total)).join('');
+
+    const booked   = entry.totalBooked  || 0;
+    const showed   = entry.totalShowed  || 0;
+    const showRate = booked > 0 ? (showed / booked * 100) : 0;
+
+    document.getElementById('totals-title').textContent = `${selectedMonth} — appointment totals`;
+    document.getElementById('totals-row').innerHTML = `
+      <div class="total-card"><div class="t-label">Total booked</div><div class="t-value">${booked}</div><div class="t-sub">All sources this month</div></div>
+      <div class="total-card"><div class="t-label">Total showed</div><div class="t-value">${showed}</div><div class="t-sub">Confirmed attended</div></div>
+      <div class="total-card"><div class="t-label">Show rate</div><div class="t-value green">${showRate.toFixed(1)}%</div><div class="t-sub">Showed ÷ booked</div></div>
+    `;
+  }
+
+  const percentageLabelPlugin = {
+    id: 'percentageLabels',
+    afterDatasetsDraw(chart) {
+      const ctx  = chart.ctx;
+      const meta = chart.getDatasetMeta(0);
+      ctx.save();
+      meta.data.forEach((bar, i) => {
+        const rate = bookedRate(DATA[MONTHS[i]]);
+        ctx.font         = '500 11px -apple-system, sans-serif';
+        ctx.fillStyle    = '#444441';
+        ctx.textAlign    = 'center';
+        ctx.textBaseline = 'bottom';
+        ctx.fillText(rate.toFixed(1) + '%', bar.x, bar.y - 4);
+      });
+      ctx.restore();
+    }
+  };
+
+  let trendChart = null;
+  function renderTrendChart() {
+    const booked = MONTHS.map(m => {
+      const d = DATA[m].dispositions;
+      return (d["Contact - Live Transfer"] || 0) + (d["Contact - Appointment Booked"] || 0);
+    });
+    const colors = MONTHS.map((_, i) => MONTH_COLORS[i % MONTH_COLORS.length]);
+    if (trendChart) trendChart.destroy();
+    trendChart = new Chart(document.getElementById('trendChart'), {
+      type: 'bar',
+      plugins: [percentageLabelPlugin],
+      data: {
+        labels: MONTHS,
+        datasets: [{
+          data: booked,
+          backgroundColor: colors,
+          borderRadius: 6,
+          borderSkipped: false,
+          barPercentage: 0.3,
+          categoryPercentage: 0.5
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        layout: { padding: { top: 28, right: 8 } },
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            backgroundColor: '#fff', titleColor: '#2C2C2A', bodyColor: '#5F5E5A',
+            borderColor: '#D3D1C7', borderWidth: 1, padding: 10,
+            callbacks: {
+              label: ctx => {
+                const rate = bookedRate(DATA[MONTHS[ctx.dataIndex]]);
+                return [`  ${ctx.parsed.y} contacts booked`, `  ${rate.toFixed(1)}% booked rate`];
+              }
+            }
+          }
+        },
+        scales: {
+          x: { ticks: { autoSkip: false, maxRotation: 0, font: { size: 11 }, color: '#888780' }, grid: { display: false }, border: { display: false } },
+          y: { ticks: { font: { size: 11 }, color: '#888780', maxTicksLimit: 5 }, grid: { color: 'rgba(180,178,169,0.2)' }, border: { display: false } }
+        }
+      }
+    });
+  }
+
+  window.selectMonth = function(m) {
+    selectedMonth = m;
+    renderMetrics();
+    renderBreakdown();
+  };
+
+  renderMonthSelect();
+  renderLegend();
+  renderMetrics();
+  renderBreakdown();
+  renderTrendChart();
+</script>
+</body>
+</html>
