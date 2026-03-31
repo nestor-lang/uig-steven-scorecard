@@ -145,10 +145,12 @@
     const d = entry.dispositions;
     const rate = bookedRate(entry);
     const passive = (d["Contact - Passive"] || 0) + (d["No Contact - Passive"] || 0);
+    const lt = entry.totalLT !== undefined ? entry.totalLT : (d["Contact - Live Transfer"] || 0);
+    const appt = entry.totalApptBooked !== undefined ? entry.totalApptBooked : (d["Contact - Appointment Booked"] || 0);
     document.getElementById('metrics-row').innerHTML = `
       <div class="metric-card"><div class="label">Booked rate</div><div class="value green">${rate.toFixed(1)}%</div><div class="sub">LT + appt / eligible</div></div>
-      <div class="metric-card"><div class="label">Live transfers</div><div class="value">${d["Contact - Live Transfer"] || 0}</div><div class="sub">Connected to closer</div></div>
-      <div class="metric-card"><div class="label">Appts booked</div><div class="value">${d["Contact - Appointment Booked"] || 0}</div><div class="sub">Scheduled follow-ups</div></div>
+      <div class="metric-card"><div class="label">Live transfers</div><div class="value">${lt}</div><div class="sub">Disposed this month</div></div>
+      <div class="metric-card"><div class="label">Appts booked</div><div class="value">${appt}</div><div class="sub">Disposed this month</div></div>
       <div class="metric-card"><div class="label">Passive pipeline</div><div class="value">${passive.toLocaleString()}</div><div class="sub">Total workable</div></div>
     `;
   }
