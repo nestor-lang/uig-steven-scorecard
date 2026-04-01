@@ -1,0 +1,31 @@
+name: Steven Scorecard Update
+
+on:
+  schedule:
+    # 8AM and 8PM AST (12:00 and 00:00 UTC)
+    - cron: '0 12 * * *'
+    - cron: '0 0 * * *'
+  workflow_dispatch: # manual trigger
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    env:
+      PUSH_TOKEN:     ${{ secrets.PUSH_TOKEN }}
+      PODIO_SECRET:   ${{ secrets.PODIO_SECRET }}
+      PODIO_APP_TOKEN: ${{ secrets.PODIO_APP_TOKEN }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Update scorecard
+        run: python update_steven_scorecard.py
