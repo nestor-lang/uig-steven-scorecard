@@ -49,16 +49,16 @@
     "dispositions": {
       "Contact - Live Transfer": 3,
       "Not Disposed": 3,
+      "Contact - Appointment Booked": 1,
       "Contact - Wrong Number": 0,
       "Contact - Dead": 0,
       "Contact - Passive": 0,
-      "Contact - Appointment Booked": 0,
       "No Contact - Passive": 0,
       "Non-Disposed Yet": 0
     },
-    "totalBooked": 0,
+    "totalBooked": 1,
     "totalLT": 3,
-    "totalApptBooked": 0,
+    "totalApptBooked": 1,
     "totalShowed": 0
   }
 }
