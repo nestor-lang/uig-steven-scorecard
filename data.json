@@ -47,8 +47,8 @@
   },
   "Apr 2026": {
     "dispositions": {
-      "Contact - Live Transfer": 2,
-      "Not Disposed": 5,
+      "Contact - Live Transfer": 3,
+      "Not Disposed": 3,
       "Contact - Wrong Number": 0,
       "Contact - Dead": 0,
       "Contact - Passive": 0,
@@ -57,7 +57,7 @@
       "Non-Disposed Yet": 0
     },
     "totalBooked": 0,
-    "totalLT": 2,
+    "totalLT": 3,
     "totalApptBooked": 0,
     "totalShowed": 0
   }
