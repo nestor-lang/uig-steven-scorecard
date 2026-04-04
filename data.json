@@ -1,64 +1,62 @@
 {
   "Jan 2026": {
     "dispositions": {
-      "Contact - Passive": 57,
-      "No Contact - Passive": 179,
-      "Contact - Live Transfer": 21,
-      "Contact - Dead": 208,
-      "Contact - Wrong Number": 300,
-      "Contact - Appointment Booked": 20,
-      "Non-Disposed Yet": 0
-    },
-    "totalBooked": 12,
-    "totalShowed": 4,
-    "totalLT": 19,
-    "totalApptBooked": 12
-  },
-  "Feb 2026": {
-    "dispositions": {
-      "Contact - Wrong Number": 554,
-      "No Contact - Passive": 271,
-      "Contact - Passive": 74,
-      "Contact - Dead": 152,
-      "Contact - Live Transfer": 21,
-      "Contact - Appointment Booked": 36,
-      "Not Disposed": 1,
-      "Non-Disposed Yet": 0
-    },
-    "totalBooked": 53,
-    "totalShowed": 35,
-    "totalLT": 21,
-    "totalApptBooked": 36
-  },
-  "Mar 2026": {
-    "dispositions": {
-      "Contact - Wrong Number": 197,
-      "Contact - Dead": 162,
-      "Contact - Passive": 53,
-      "Contact - Live Transfer": 30,
-      "Contact - Appointment Booked": 15,
-      "No Contact - Passive": 158,
-      "Non-Disposed Yet": 0
-    },
-    "totalBooked": 40,
-    "totalLT": 32,
-    "totalApptBooked": 22,
-    "totalShowed": 20
-  },
-  "Apr 2026": {
-    "dispositions": {
-      "Contact - Live Transfer": 3,
-      "Contact - Dead": 1,
-      "Not Disposed": 10,
-      "Contact - Appointment Booked": 3,
+      "Contact - Appointment Booked": 12,
+      "Contact - Live Transfer": 19,
       "Contact - Wrong Number": 0,
+      "Contact - Dead": 0,
       "Contact - Passive": 0,
       "No Contact - Passive": 0,
       "Non-Disposed Yet": 0
     },
-    "totalBooked": 4,
+    "totalLT": 19,
+    "totalApptBooked": 12,
+    "totalBooked": 12,
+    "totalShowed": 4
+  },
+  "Feb 2026": {
+    "dispositions": {
+      "Contact - Live Transfer": 21,
+      "Contact - Appointment Booked": 36,
+      "Contact - Passive": 98,
+      "Contact - Wrong Number": 458,
+      "Contact - Dead": 112,
+      "No Contact - Passive": 189,
+      "Non-Disposed Yet": 0
+    },
+    "totalLT": 21,
+    "totalApptBooked": 36,
+    "totalBooked": 53,
+    "totalShowed": 35
+  },
+  "Mar 2026": {
+    "dispositions": {
+      "Contact - Wrong Number": 216,
+      "Contact - Appointment Booked": 21,
+      "Contact - Passive": 62,
+      "No Contact - Passive": 272,
+      "Contact - Dead": 177,
+      "Contact - Live Transfer": 32,
+      "Non-Disposed Yet": 0
+    },
+    "totalLT": 32,
+    "totalApptBooked": 21,
+    "totalBooked": 40,
+    "totalShowed": 20
+  },
+  "Apr 2026": {
+    "dispositions": {
+      "Contact - Dead": 6,
+      "Contact - Passive": 3,
+      "Contact - Live Transfer": 3,
+      "No Contact - Passive": 5,
+      "Contact - Appointment Booked": 3,
+      "Contact - Wrong Number": 2,
+      "Non-Disposed Yet": 0
+    },
     "totalLT": 3,
     "totalApptBooked": 3,
+    "totalBooked": 4,
     "totalShowed": 1
   }
 }
