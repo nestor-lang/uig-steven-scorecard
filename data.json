@@ -47,13 +47,13 @@
   },
   "Apr 2026": {
     "dispositions": {
-      "Contact - Passive": 1,
-      "Contact - Wrong Number": 1,
-      "Contact - Dead": 2,
-      "No Contact - Passive": 2,
       "Contact - Live Transfer": 3,
+      "Contact - Dead": 1,
       "Not Disposed": 10,
       "Contact - Appointment Booked": 3,
+      "Contact - Wrong Number": 0,
+      "Contact - Passive": 0,
+      "No Contact - Passive": 0,
       "Non-Disposed Yet": 0
     },
     "totalBooked": 4,
