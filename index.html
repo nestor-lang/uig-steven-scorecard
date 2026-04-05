@@ -13,7 +13,7 @@
     .header-left h1 { font-size: 26px; font-weight: 800; color: #2C2C2A; letter-spacing: -0.01em; }
     .header-left p { font-family: 'DM Mono', monospace; font-size: 11px; color: #888780; margin-top: 6px; }
     .month-select { font-family: 'DM Mono', monospace; font-size: 11px; padding: 6px 12px; border-radius: 8px; border: 0.5px solid #B4B2A9; background: #fff; color: #2C2C2A; cursor: pointer; }
-    .metrics { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin-bottom: 1.25rem; }
+    .metrics { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; margin-bottom: 1.25rem; }
     .metric-card { background: #f1efe8; border-radius: 8px; padding: 1rem; }
     .metric-card .label { font-size: 12px; color: #888780; margin-bottom: 6px; }
     .metric-card .value { font-size: 24px; font-weight: 500; color: #2C2C2A; }
@@ -34,7 +34,7 @@
     .disp-count { font-size: 13px; font-weight: 500; }
     .disp-pct { font-size: 11px; font-weight: 400; opacity: 0.6; }
     .divider { border: none; border-top: 0.5px solid rgba(0,0,0,0.08); margin: 1.25rem 0; }
-    .totals-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+    .totals-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
     .total-card { background: #f1efe8; border-radius: 8px; padding: 1rem; }
     .total-card .t-label { font-size: 12px; color: #888780; margin-bottom: 6px; }
     .total-card .t-value { font-size: 28px; font-weight: 500; color: #2C2C2A; }
@@ -149,11 +149,11 @@
     const lt = entry.totalLT !== undefined ? entry.totalLT : (d["Contact - Live Transfer"] || 0);
     const appt = entry.totalApptBooked !== undefined ? entry.totalApptBooked : (d["Contact - Appointment Booked"] || 0);
     document.getElementById('metrics-row').innerHTML = `
+      <div class="metric-card"><div class="label">Total dispositioned</div><div class="value">${total.toLocaleString()}</div><div class="sub">Contacts this month</div></div>
       <div class="metric-card"><div class="label">Booked rate</div><div class="value green">${rate.toFixed(1)}%</div><div class="sub">LT + appt / eligible</div></div>
       <div class="metric-card"><div class="label">Live transfers</div><div class="value">${lt}</div><div class="sub">Disposed this month</div></div>
       <div class="metric-card"><div class="label">Appts booked</div><div class="value">${appt}</div><div class="sub">Disposed this month</div></div>
       <div class="metric-card"><div class="label">Total bookings</div><div class="value green">${lt + appt}</div><div class="sub">LT + appts this month</div></div>
-
     `;
   }
 
@@ -184,7 +184,6 @@
 
     document.getElementById('totals-title').textContent = `${selectedMonth} — appointment totals`;
     document.getElementById('totals-row').innerHTML = `
-      <div class="total-card"><div class="t-label">Total dispositioned</div><div class="t-value">${total.toLocaleString()}</div><div class="t-sub">All contacts this month</div></div>
       <div class="total-card"><div class="t-label">Total booked</div><div class="t-value">${booked}</div><div class="t-sub">All sources this month</div></div>
       <div class="total-card"><div class="t-label">Total showed</div><div class="t-value">${showed}</div><div class="t-sub">Confirmed attended</div></div>
       <div class="total-card"><div class="t-label">Show rate</div><div class="t-value green">${showRate.toFixed(1)}%</div><div class="t-sub">Showed ÷ booked</div></div>
