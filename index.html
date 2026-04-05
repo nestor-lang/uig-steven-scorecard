@@ -34,7 +34,7 @@
     .disp-count { font-size: 13px; font-weight: 500; }
     .disp-pct { font-size: 11px; font-weight: 400; opacity: 0.6; }
     .divider { border: none; border-top: 0.5px solid rgba(0,0,0,0.08); margin: 1.25rem 0; }
-    .totals-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+    .totals-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
     .total-card { background: #f1efe8; border-radius: 8px; padding: 1rem; }
     .total-card .t-label { font-size: 12px; color: #888780; margin-bottom: 6px; }
     .total-card .t-value { font-size: 28px; font-weight: 500; color: #2C2C2A; }
@@ -43,7 +43,7 @@
     @media (max-width: 600px) {
       .metrics { grid-template-columns: repeat(2, 1fr); }
       .disp-cols { grid-template-columns: 1fr; }
-      .totals-grid { grid-template-columns: repeat(3, 1fr); }
+      .totals-grid { grid-template-columns: repeat(2, 1fr); }
       .header { flex-direction: column; gap: 1rem; }
     }
   </style>
@@ -184,6 +184,7 @@
 
     document.getElementById('totals-title').textContent = `${selectedMonth} — appointment totals`;
     document.getElementById('totals-row').innerHTML = `
+      <div class="total-card"><div class="t-label">Total dispositioned</div><div class="t-value">${total.toLocaleString()}</div><div class="t-sub">All contacts this month</div></div>
       <div class="total-card"><div class="t-label">Total booked</div><div class="t-value">${booked}</div><div class="t-sub">All sources this month</div></div>
       <div class="total-card"><div class="t-label">Total showed</div><div class="t-value">${showed}</div><div class="t-sub">Confirmed attended</div></div>
       <div class="total-card"><div class="t-label">Show rate</div><div class="t-value green">${showRate.toFixed(1)}%</div><div class="t-sub">Showed ÷ booked</div></div>
