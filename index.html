@@ -144,6 +144,7 @@
   function renderMetrics() {
     const entry = DATA[selectedMonth];
     const d = entry.dispositions;
+    const total = Object.values(d).reduce((a, b) => a + b, 0);
     const rate = bookedRate(entry);
     const passive = (d["Contact - Passive"] || 0) + (d["No Contact - Passive"] || 0);
     const lt = entry.totalLT !== undefined ? entry.totalLT : (d["Contact - Live Transfer"] || 0);
