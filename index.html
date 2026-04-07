@@ -40,11 +40,19 @@
     .total-card .t-value { font-size: 28px; font-weight: 500; color: #2C2C2A; }
     .total-card .t-value.green { color: #0F6E56; }
     .total-card .t-sub { font-size: 11px; color: #888780; margin-top: 4px; }
+    /* Lead status breakdown */
+    .ls-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 8px; }
+    .ls-card { border-radius: 8px; padding: 10px 12px; display: flex; justify-content: space-between; align-items: center; }
+    .ls-label { font-size: 12px; font-weight: 500; }
+    .ls-right { display: flex; align-items: baseline; gap: 6px; }
+    .ls-count { font-size: 18px; font-weight: 500; }
+    .ls-pct { font-size: 11px; opacity: 0.6; }
     @media (max-width: 600px) {
       .metrics { grid-template-columns: repeat(2, 1fr); }
       .disp-cols { grid-template-columns: 1fr; }
       .totals-grid { grid-template-columns: repeat(2, 1fr); }
       .header { flex-direction: column; gap: 1rem; }
+      .ls-grid { grid-template-columns: repeat(2, 1fr); }
     }
   </style>
 </head>
@@ -88,13 +96,18 @@
     <div style="font-size:12px;color:#888780;margin-bottom:1rem;">All appointments booked and show rate for the month, regardless of lead origin</div>
     <div class="totals-grid" id="totals-row"></div>
   </div>
+
+  <div class="section">
+    <div class="section-title" id="ls-title"></div>
+    <div class="section-sub" id="ls-sub"></div>
+    <div class="ls-grid" id="ls-grid"></div>
+  </div>
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
 <script>
 
   // ─── DATA ────────────────────────────────────────────────────────────────────
-  // Loaded from data.json. OpenClaw updates data.json via GitHub API monthly.
   let DATA = {};
   // ─────────────────────────────────────────────────────────────────────────────
 
@@ -103,6 +116,23 @@
     '#BA7517','#D4537E','#639922','#5DCAA5',
     '#AFA9EC','#F0997B','#97C459','#EF9F27'
   ];
+
+  // Lead status styles — color-coded by outcome quality
+  const LS_STYLES = {
+    'Hot':               { bg: '#FEECE8', color: '#B93C1A' },
+    'Warm':              { bg: '#FEF6E0', color: '#8A5A08' },
+    'Cold':              { bg: '#E8F0FE', color: '#1A4FA0' },
+    'Under Contract':    { bg: '#E1F5EE', color: '#0F6E56' },
+    'Sold':              { bg: '#EAF3DE', color: '#3B6D11' },
+    'Dead':              { bg: '#FCEBEB', color: '#A32D2D' },
+    'No Longer Selling': { bg: '#FCEBEB', color: '#A32D2D' },
+    'Not Workable':      { bg: '#F1EFE8', color: '#5F5E5A' },
+    'Owes too Much':     { bg: '#F1EFE8', color: '#5F5E5A' },
+    'Listed':            { bg: '#F1EFE8', color: '#5F5E5A' },
+    'Need to Contact':   { bg: '#EEF0FE', color: '#4A4FA0' },
+    'Wrong Number':      { bg: '#FAECE7', color: '#993C1D' },
+    'Unknown':           { bg: '#F1EFE8', color: '#888780' },
+  };
 
   const LEFT_KEYS  = ["Contact - Dead","Contact - Wrong Number","No Contact - Passive","Non-Disposed Yet"];
   const RIGHT_KEYS = ["Contact - Passive","Contact - Appointment Booked","Contact - Live Transfer"];
@@ -146,7 +176,6 @@
     const d = entry.dispositions;
     const total = Object.values(d).reduce((a, b) => a + b, 0);
     const rate = bookedRate(entry);
-    const passive = (d["Contact - Passive"] || 0) + (d["No Contact - Passive"] || 0);
     const lt = entry.totalLT !== undefined ? entry.totalLT : (d["Contact - Live Transfer"] || 0);
     const appt = entry.totalApptBooked !== undefined ? entry.totalApptBooked : (d["Contact - Appointment Booked"] || 0);
     document.getElementById('metrics-row').innerHTML = `
@@ -189,6 +218,44 @@
       <div class="total-card"><div class="t-label">Total showed</div><div class="t-value">${showed}</div><div class="t-sub">Confirmed attended</div></div>
       <div class="total-card"><div class="t-label">Show rate</div><div class="t-value green">${showRate.toFixed(1)}%</div><div class="t-sub">Showed ÷ booked</div></div>
     `;
+  }
+
+  function renderLeadStatus() {
+    const entry = DATA[selectedMonth];
+    const breakdown = entry.leadStatusBreakdown || {};
+    const total = Object.values(breakdown).reduce((a, b) => a + b, 0);
+
+    document.getElementById('ls-title').textContent = `${selectedMonth} — what happened to leads Steven booked`;
+    document.getElementById('ls-sub').textContent = total > 0
+      ? `${total} appointment-booked leads — current status on the main database`
+      : 'No appointment-booked leads found for this month';
+
+    if (total === 0) {
+      document.getElementById('ls-grid').innerHTML = '<p style="font-size:12px;color:#888780;">No data available.</p>';
+      return;
+    }
+
+    // Sort: Under Contract + Hot first, then by count desc
+    const ORDER_PRIORITY = ['Under Contract', 'Sold', 'Hot', 'Warm', 'Need to Contact', 'Cold'];
+    const sorted = Object.entries(breakdown).sort(([a, av], [b, bv]) => {
+      const ai = ORDER_PRIORITY.indexOf(a), bi = ORDER_PRIORITY.indexOf(b);
+      if (ai !== -1 && bi !== -1) return ai - bi;
+      if (ai !== -1) return -1;
+      if (bi !== -1) return 1;
+      return bv - av;
+    });
+
+    document.getElementById('ls-grid').innerHTML = sorted.map(([status, count]) => {
+      const s = LS_STYLES[status] || { bg: '#F1EFE8', color: '#5F5E5A' };
+      const pct = (count / total * 100).toFixed(0);
+      return `<div class="ls-card" style="background:${s.bg}">
+        <span class="ls-label" style="color:${s.color}">${status}</span>
+        <div class="ls-right">
+          <span class="ls-count" style="color:${s.color}">${count}</span>
+          <span class="ls-pct" style="color:${s.color}">${pct}%</span>
+        </div>
+      </div>`;
+    }).join('');
   }
 
   const percentageLabelPlugin = {
@@ -259,6 +326,7 @@
     selectedMonth = m;
     renderMetrics();
     renderBreakdown();
+    renderLeadStatus();
   };
 
   fetch('data.json')
@@ -273,6 +341,7 @@
       renderLegend();
       renderMetrics();
       renderBreakdown();
+      renderLeadStatus();
       renderTrendChart();
     })
     .catch(err => {
@@ -282,4 +351,3 @@
 </script>
 </body>
 </html>
-
