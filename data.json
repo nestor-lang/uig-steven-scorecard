@@ -12,7 +12,14 @@
     "totalLT": 19,
     "totalApptBooked": 12,
     "totalBooked": 12,
-    "totalShowed": 4
+    "totalShowed": 4,
+    "leadStatusBreakdown": {
+      "Under Contract": 5,
+      "Not Workable": 2,
+      "Cold": 3,
+      "Owes too Much": 1,
+      "Listed": 1
+    }
   },
   "Feb 2026": {
     "dispositions": {
@@ -27,7 +34,18 @@
     "totalLT": 21,
     "totalApptBooked": 36,
     "totalBooked": 53,
-    "totalShowed": 35
+    "totalShowed": 35,
+    "leadStatusBreakdown": {
+      "Under Contract": 1,
+      "Cold": 18,
+      "Listed": 2,
+      "Warm": 2,
+      "Need to Contact": 5,
+      "Dead": 3,
+      "Hot": 2,
+      "Owes too Much": 2,
+      "Wrong Number": 1
+    }
   },
   "Mar 2026": {
     "dispositions": {
@@ -42,7 +60,17 @@
     "totalLT": 32,
     "totalApptBooked": 21,
     "totalBooked": 40,
-    "totalShowed": 20
+    "totalShowed": 20,
+    "leadStatusBreakdown": {
+      "Not Workable": 1,
+      "Cold": 11,
+      "Owes too Much": 1,
+      "Under Contract": 3,
+      "Hot": 2,
+      "Sold": 1,
+      "No Longer Selling": 1,
+      "Warm": 1
+    }
   },
   "Apr 2026": {
     "dispositions": {
@@ -57,6 +85,10 @@
     "totalLT": 6,
     "totalApptBooked": 4,
     "totalBooked": 6,
-    "totalShowed": 1
+    "totalShowed": 1,
+    "leadStatusBreakdown": {
+      "Hot": 1,
+      "Unknown": 3
+    }
   }
 }
