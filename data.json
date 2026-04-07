@@ -13,6 +13,8 @@
     "totalApptBooked": 13,
     "totalBooked": 10,
     "totalShowed": 4,
+    "totalNoShow": 5,
+    "totalPending": 1,
     "leadStatusBreakdown": {
       "Under Contract": 10,
       "Dead": 4,
@@ -38,6 +40,8 @@
     "totalApptBooked": 36,
     "totalBooked": 52,
     "totalShowed": 35,
+    "totalNoShow": 14,
+    "totalPending": 3,
     "leadStatusBreakdown": {
       "Cold": 28,
       "Under Contract": 7,
@@ -66,6 +70,8 @@
     "totalApptBooked": 21,
     "totalBooked": 40,
     "totalShowed": 20,
+    "totalNoShow": 15,
+    "totalPending": 5,
     "leadStatusBreakdown": {
       "Not Workable": 1,
       "Cold": 29,
@@ -93,6 +99,8 @@
     "totalApptBooked": 4,
     "totalBooked": 6,
     "totalShowed": 1,
+    "totalNoShow": 4,
+    "totalPending": 1,
     "leadStatusBreakdown": {
       "Hot": 2,
       "Cold": 2,
