@@ -1,23 +1,23 @@
 {
   "Jan 2026": {
     "dispositions": {
-      "Contact - Appointment Booked": 12,
+      "Contact - Appointment Booked": 13,
       "Contact - Live Transfer": 19,
-      "Contact - Wrong Number": 0,
-      "Contact - Dead": 0,
-      "Contact - Passive": 0,
-      "No Contact - Passive": 0,
+      "No Contact - Passive": 144,
+      "Contact - Dead": 206,
+      "Contact - Wrong Number": 297,
+      "Contact - Passive": 16,
       "Non-Disposed Yet": 0
     },
     "totalLT": 19,
-    "totalApptBooked": 12,
+    "totalApptBooked": 13,
     "totalBooked": 12,
     "totalShowed": 4,
     "leadStatusBreakdown": {
       "Under Contract": 5,
       "Not Workable": 2,
       "Cold": 3,
-      "Owes too Much": 1,
+      "Owes too Much": 2,
       "Listed": 1
     }
   },
@@ -25,9 +25,9 @@
     "dispositions": {
       "Contact - Live Transfer": 21,
       "Contact - Appointment Booked": 36,
-      "Contact - Passive": 98,
-      "Contact - Wrong Number": 458,
-      "Contact - Dead": 112,
+      "Contact - Passive": 103,
+      "Contact - Wrong Number": 538,
+      "Contact - Dead": 139,
       "No Contact - Passive": 189,
       "Non-Disposed Yet": 0
     },
