@@ -152,10 +152,10 @@
 
   function bookedRate(entry) {
     const d = entry.dispositions || entry;
-    const num = (d["Contact - Live Transfer"] || 0) + (d["Contact - Appointment Booked"] || 0);
-    const total = Object.values(d).reduce((a, b) => a + b, 0);
-    const excluded = (d["Contact - Dead"] || 0) + (d["Contact - Wrong Number"] || 0);
-    const den = total - excluded;
+    // Num: appointments from appointments app + live transfers from nurture
+    const num = (entry.totalBooked || 0) + (entry.totalLT || 0);
+    // Den: all dispositions (no exclusions)
+    const den = Object.values(d).reduce((a, b) => a + b, 0);
     return den === 0 ? 0 : (num / den * 100);
   }
 
