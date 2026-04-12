@@ -101,14 +101,14 @@
     "totalNoShow": 12,
     "totalPending": 0,
     "leadStatusBreakdown": {
-      "Hot": 4,
-      "Cold": 14,
-      "Need to Contact": 1,
-      "Unknown": 5,
-      "Warm": 6,
-      "Owes too Much": 1,
-      "Under Contract": 1,
-      "Listed": 2
+      "Hot": 8,
+      "Cold": 28,
+      "Need to Contact": 2,
+      "Unknown": 10,
+      "Warm": 12,
+      "Owes too Much": 2,
+      "Under Contract": 2,
+      "Listed": 4
     }
   }
 }
