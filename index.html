@@ -332,7 +332,7 @@
     renderLeadStatus();
   };
 
-  fetch('data.json')
+  fetch('data.json?v=' + Date.now())
     .then(r => r.json())
     .then(json => {
       DATA = json;
