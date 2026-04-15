@@ -88,26 +88,26 @@
     "dispositions": {
       "Contact - Dead": 20,
       "Contact - Passive": 15,
-      "Contact - Live Transfer": 30,
+      "Contact - Live Transfer": 31,
       "No Contact - Passive": 21,
-      "Contact - Appointment Booked": 19,
+      "Contact - Appointment Booked": 21,
       "Contact - Wrong Number": 7,
       "Non-Disposed Yet": 0
     },
-    "totalLT": 30,
-    "totalApptBooked": 19,
-    "totalBooked": 31,
+    "totalLT": 31,
+    "totalApptBooked": 21,
+    "totalBooked": 33,
     "totalShowed": 14,
     "totalNoShow": 15,
-    "totalPending": 2,
+    "totalPending": 4,
     "leadStatusBreakdown": {
-      "Hot": 12,
-      "Cold": 42,
+      "Hot": 13,
+      "Cold": 46,
       "Need to Contact": 2,
-      "Unknown": 10,
-      "Warm": 17,
+      "Unknown": 13,
+      "Warm": 18,
       "Owes too Much": 2,
-      "Under Contract": 2,
+      "Under Contract": 3,
       "Listed": 4
     }
   }
