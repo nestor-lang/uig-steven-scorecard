@@ -6,7 +6,7 @@
       "No Contact - Passive": 144,
       "Contact - Dead": 206,
       "Contact - Wrong Number": 297,
-      "Contact - Passive": 15,
+      "Contact - Passive": 14,
       "Non-Disposed Yet": 0
     },
     "totalLT": 19,
@@ -19,18 +19,19 @@
       "Under Contract": 10,
       "Dead": 4,
       "Not Workable": 2,
-      "Cold": 8,
+      "Cold": 7,
       "Warm": 3,
       "Owes too Much": 2,
       "Need to Contact": 2,
-      "Listed": 1
+      "Listed": 1,
+      "Sold": 1
     }
   },
   "Feb 2026": {
     "dispositions": {
       "Contact - Live Transfer": 20,
       "Contact - Appointment Booked": 36,
-      "Contact - Passive": 101,
+      "Contact - Passive": 100,
       "Contact - Wrong Number": 538,
       "Contact - Dead": 139,
       "No Contact - Passive": 188,
@@ -58,47 +59,61 @@
   "Mar 2026": {
     "dispositions": {
       "Contact - Wrong Number": 216,
-      "Contact - Appointment Booked": 21,
-      "Contact - Passive": 63,
-      "No Contact - Passive": 265,
+      "Contact - Appointment Booked": 20,
+      "Contact - Passive": 60,
+      "No Contact - Passive": 258,
       "Contact - Dead": 179,
-      "Contact - Live Transfer": 33,
+      "Contact - Live Transfer": 31,
       "Non-Disposed Yet": 0
     },
-    "totalLT": 33,
-    "totalApptBooked": 21,
+    "totalLT": 31,
+    "totalApptBooked": 20,
     "totalBooked": 40,
     "totalShowed": 20,
     "totalNoShow": 20,
     "totalPending": 0,
     "leadStatusBreakdown": {
       "Not Workable": 1,
-      "Cold": 26,
+      "Cold": 25,
       "Under Contract": 9,
       "No Longer Selling": 3,
       "Dead": 2,
       "Listed": 1,
       "Sold": 3,
       "Owes too Much": 1,
-      "Warm": 4,
-      "Hot": 3,
-      "Need to Contact": 1
+      "Warm": 3,
+      "Need to Contact": 2,
+      "Hot": 1
     }
   },
   "Apr 2026": {
     "dispositions": {
-      "Contact - Live Transfer": 38,
-      "Contact - Dead": 19,
-      "Contact - Passive": 18,
-      "No Contact - Passive": 19,
-      "Contact - Appointment Booked": 41,
-      "Not Disposed": 35,
-      "Contact - Wrong Number": 10,
+      "Contact - Dead": 29,
+      "Contact - Passive": 29,
+      "Contact - Live Transfer": 44,
+      "No Contact - Passive": 48,
+      "Contact - Appointment Booked": 44,
+      "Contact - Wrong Number": 14,
       "Non-Disposed Yet": 0
     },
-    "totalBooked": 62,
-    "totalLT": 42,
+    "totalLT": 44,
     "totalApptBooked": 44,
-    "totalShowed": 28
+    "totalBooked": 65,
+    "totalShowed": 28,
+    "totalNoShow": 32,
+    "totalPending": 5,
+    "leadStatusBreakdown": {
+      "Hot": 11,
+      "Cold": 38,
+      "Need to Contact": 1,
+      "Warm": 13,
+      "Unknown": 13,
+      "Owes too Much": 3,
+      "Under Contract": 3,
+      "Listed": 2,
+      "Dead": 2,
+      "Not Workable": 1,
+      "No Longer Selling": 1
+    }
   }
 }
