@@ -92,14 +92,14 @@
       "Contact - Dead": 28,
       "Contact - Passive": 26,
       "No Contact - Passive": 24,
-      "Contact - Appointment Booked": 50,
-      "Not Disposed": 34,
+      "Contact - Appointment Booked": 54,
+      "Not Disposed": 36,
       "Contact - Wrong Number": 13,
       "Non-Disposed Yet": 0
     },
-    "totalBooked": 83,
+    "totalBooked": 88,
     "totalLT": 54,
-    "totalApptBooked": 53,
-    "totalShowed": 38
+    "totalApptBooked": 57,
+    "totalShowed": 39
   }
 }
