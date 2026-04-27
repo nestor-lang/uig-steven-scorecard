@@ -93,11 +93,11 @@
       "Contact - Passive": 26,
       "No Contact - Passive": 24,
       "Contact - Appointment Booked": 54,
-      "Not Disposed": 40,
-      "Contact - Wrong Number": 13,
+      "Not Disposed": 42,
+      "Contact - Wrong Number": 14,
       "Non-Disposed Yet": 0
     },
-    "totalBooked": 88,
+    "totalBooked": 89,
     "totalLT": 54,
     "totalApptBooked": 57,
     "totalShowed": 39
