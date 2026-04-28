@@ -90,16 +90,16 @@
     "dispositions": {
       "Contact - Live Transfer": 55,
       "Contact - Dead": 26,
-      "Contact - Passive": 26,
+      "Contact - Passive": 27,
       "No Contact - Passive": 24,
-      "Contact - Appointment Booked": 57,
-      "Not Disposed": 38,
+      "Contact - Appointment Booked": 58,
+      "Not Disposed": 40,
       "Contact - Wrong Number": 15,
       "Non-Disposed Yet": 0
     },
-    "totalBooked": 96,
+    "totalBooked": 97,
     "totalLT": 60,
-    "totalApptBooked": 61,
+    "totalApptBooked": 62,
     "totalShowed": 46
   }
 }
