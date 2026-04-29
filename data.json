@@ -94,10 +94,10 @@
       "No Contact - Passive": 30,
       "Contact - Appointment Booked": 61,
       "Contact - Wrong Number": 15,
-      "Not Disposed": 31,
+      "Not Disposed": 33,
       "Non-Disposed Yet": 0
     },
-    "totalBooked": 101,
+    "totalBooked": 103,
     "totalLT": 61,
     "totalApptBooked": 64,
     "totalShowed": 50
