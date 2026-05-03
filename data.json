@@ -104,18 +104,18 @@
   },
   "May 2026": {
     "dispositions": {
-      "Contact - Passive": 2,
+      "Contact - Passive": 4,
       "Contact - Dead": 3,
       "Contact - Live Transfer": 1,
-      "Not Disposed": 6,
+      "Not Disposed": 8,
+      "Contact - Appointment Booked": 3,
       "Contact - Wrong Number": 0,
-      "Contact - Appointment Booked": 0,
       "No Contact - Passive": 0,
       "Non-Disposed Yet": 0
     },
-    "totalBooked": 1,
+    "totalBooked": 4,
     "totalLT": 2,
-    "totalApptBooked": 2,
+    "totalApptBooked": 5,
     "totalShowed": 0
   }
 }
