@@ -105,9 +105,9 @@
   "May 2026": {
     "dispositions": {
       "Contact - Passive": 4,
-      "Contact - Dead": 3,
+      "Contact - Dead": 2,
       "Contact - Live Transfer": 1,
-      "Not Disposed": 9,
+      "Not Disposed": 19,
       "Contact - Appointment Booked": 3,
       "Contact - Wrong Number": 0,
       "No Contact - Passive": 0,
