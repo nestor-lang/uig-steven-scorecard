@@ -120,15 +120,15 @@
       "Contact - Passive": 59,
       "Contact - Live Transfer": 33,
       "No Contact - Passive": 40,
-      "Contact - Appointment Booked": 39,
+      "Contact - Appointment Booked": 43,
       "Contact - Dead": 50,
-      "Not Disposed": 38,
+      "Not Disposed": 41,
       "Contact - Wrong Number": 19,
       "Non-Disposed Yet": 0
     },
-    "totalBooked": 83,
+    "totalBooked": 90,
     "totalLT": 34,
-    "totalApptBooked": 46,
-    "totalShowed": 45
+    "totalApptBooked": 50,
+    "totalShowed": 49
   }
 }
