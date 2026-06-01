@@ -144,5 +144,21 @@
       "Listed": 1,
       "Unknown": 2
     }
+  },
+  "Jun 2026": {
+    "dispositions": {
+      "Not Disposed": 3,
+      "Contact - Live Transfer": 1,
+      "Contact - Wrong Number": 1,
+      "Contact - Dead": 0,
+      "Contact - Passive": 0,
+      "Contact - Appointment Booked": 0,
+      "No Contact - Passive": 0,
+      "Non-Disposed Yet": 0
+    },
+    "totalBooked": 3,
+    "totalLT": 3,
+    "totalApptBooked": 3,
+    "totalShowed": 2
   }
 }
