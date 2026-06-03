@@ -149,16 +149,16 @@
     "dispositions": {
       "Contact - Dead": 3,
       "Not Disposed": 5,
-      "Contact - Live Transfer": 3,
+      "Contact - Live Transfer": 4,
       "Contact - Passive": 3,
       "Contact - Wrong Number": 3,
-      "Contact - Appointment Booked": 2,
+      "Contact - Appointment Booked": 3,
       "No Contact - Passive": 0,
       "Non-Disposed Yet": 0
     },
-    "totalBooked": 8,
-    "totalLT": 7,
-    "totalApptBooked": 4,
+    "totalBooked": 9,
+    "totalLT": 8,
+    "totalApptBooked": 5,
     "totalShowed": 4
   }
 }
