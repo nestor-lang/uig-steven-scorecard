@@ -148,17 +148,17 @@
   "Jun 2026": {
     "dispositions": {
       "Contact - Dead": 3,
-      "Not Disposed": 3,
-      "Contact - Live Transfer": 2,
+      "Not Disposed": 5,
+      "Contact - Live Transfer": 3,
+      "Contact - Passive": 3,
       "Contact - Wrong Number": 3,
-      "Contact - Passive": 2,
-      "Contact - Appointment Booked": 0,
+      "Contact - Appointment Booked": 2,
       "No Contact - Passive": 0,
       "Non-Disposed Yet": 0
     },
-    "totalBooked": 4,
-    "totalLT": 6,
-    "totalApptBooked": 3,
-    "totalShowed": 3
+    "totalBooked": 8,
+    "totalLT": 7,
+    "totalApptBooked": 4,
+    "totalShowed": 4
   }
 }
