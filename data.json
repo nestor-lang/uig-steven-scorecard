@@ -147,33 +147,18 @@
   },
   "Jun 2026": {
     "dispositions": {
-      "Contact - Appointment Booked": 49,
-      "No Contact - Passive": 38,
-      "Contact - Passive": 40,
-      "Contact - Wrong Number": 17,
-      "Contact - Dead": 39,
-      "Contact - Live Transfer": 34,
-      "Not Disposed": 10,
+      "Contact - Dead": 29,
+      "Not Disposed": 43,
+      "Contact - Live Transfer": 26,
+      "Contact - Passive": 29,
+      "Contact - Wrong Number": 18,
+      "No Contact - Passive": 15,
+      "Contact - Appointment Booked": 44,
       "Non-Disposed Yet": 0
     },
+    "totalBooked": 83,
     "totalLT": 34,
-    "totalApptBooked": 49,
-    "totalBooked": 81,
-    "totalShowed": 50,
-    "totalNoShow": 28,
-    "totalPending": 3,
-    "leadStatusBreakdown": {
-      "Cold": 36,
-      "Dead": 1,
-      "Owes too Much": 5,
-      "Under Contract": 9,
-      "Warm": 13,
-      "Hot": 8,
-      "Not Workable": 3,
-      "Need to Contact": 1,
-      "Listed": 2,
-      "Unknown": 4,
-      "Wrong Number": 1
-    }
+    "totalApptBooked": 51,
+    "totalShowed": 50
   }
 }
