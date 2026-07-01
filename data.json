@@ -174,5 +174,21 @@
       "Listed": 2,
       "Wrong Number": 2
     }
+  },
+  "Jul 2026": {
+    "dispositions": {
+      "Not Disposed": 4,
+      "Contact - Wrong Number": 0,
+      "Contact - Dead": 0,
+      "Contact - Passive": 0,
+      "Contact - Live Transfer": 0,
+      "Contact - Appointment Booked": 0,
+      "No Contact - Passive": 0,
+      "Non-Disposed Yet": 0
+    },
+    "totalBooked": 0,
+    "totalLT": 0,
+    "totalApptBooked": 0,
+    "totalShowed": 0
   }
 }
