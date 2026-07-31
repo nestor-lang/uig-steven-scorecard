@@ -177,13 +177,13 @@
   },
   "Jul 2026": {
     "dispositions": {
-      "No Contact - Passive": 20,
+      "No Contact - Passive": 21,
       "Contact - Live Transfer": 83,
-      "Contact - Callback (Short-Term)": 4,
-      "Not Disposed": 47,
-      "Contact - Wrong Number": 16,
-      "Contact - Dead": 16,
-      "Contact - Passive": 40,
+      "Contact - Callback (Short-Term)": 3,
+      "Not Disposed": 49,
+      "Contact - Wrong Number": 17,
+      "Contact - Dead": 15,
+      "Contact - Passive": 41,
       "Contact - Appointment Booked": 27,
       "Non-Disposed Yet": 1
     },
