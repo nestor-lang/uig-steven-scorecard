@@ -196,16 +196,16 @@
     "dispositions": {
       "Contact - Appointment Booked": 23,
       "Contact - Wrong Number": 7,
-      "Contact - Live Transfer": 33,
+      "Contact - Live Transfer": 32,
       "Contact - Dead": 6,
       "No Contact - Passive": 6,
       "Contact - Passive": 14,
-      "Not Disposed": 43,
+      "Not Disposed": 45,
       "Contact - Callback (Short-Term)": 5,
       "Non-Disposed Yet": 0
     },
     "totalBooked": 44,
-    "totalLT": 41,
+    "totalLT": 40,
     "totalApptBooked": 24,
     "totalShowed": 25
   }
