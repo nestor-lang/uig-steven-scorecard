@@ -200,7 +200,7 @@
       "Contact - Dead": 6,
       "No Contact - Passive": 8,
       "Contact - Passive": 16,
-      "Not Disposed": 64,
+      "Not Disposed": 68,
       "Contact - Callback (Short-Term)": 5,
       "Duplicate Entry - Delete": 1,
       "Non-Disposed Yet": 0
