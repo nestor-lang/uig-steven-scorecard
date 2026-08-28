@@ -194,20 +194,20 @@
   },
   "Aug 2026": {
     "dispositions": {
-      "Contact - Appointment Booked": 42,
-      "Contact - Wrong Number": 18,
-      "Contact - Live Transfer": 72,
-      "Contact - Dead": 17,
-      "No Contact - Passive": 41,
-      "Contact - Passive": 28,
+      "Contact - Appointment Booked": 41,
+      "Contact - Wrong Number": 19,
+      "Contact - Live Transfer": 74,
+      "Contact - Dead": 18,
+      "Not Disposed": 58,
+      "Contact - Passive": 29,
+      "No Contact - Passive": 42,
       "Contact - Callback (Short-Term)": 10,
-      "Not Disposed": 54,
       "Duplicate Entry - Delete": 2,
       "Non-Disposed Yet": 1
     },
-    "totalBooked": 92,
-    "totalLT": 87,
-    "totalApptBooked": 45,
+    "totalBooked": 94,
+    "totalLT": 89,
+    "totalApptBooked": 44,
     "totalShowed": 46
   }
 }
