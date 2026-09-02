@@ -212,8 +212,8 @@
   },
   "Sep 2026": {
     "dispositions": {
-      "Not Disposed": 10,
-      "Contact - Live Transfer": 1,
+      "Not Disposed": 11,
+      "Contact - Live Transfer": 2,
       "Contact - Dead": 1,
       "Contact - Passive": 3,
       "Contact - Appointment Booked": 1,
@@ -221,9 +221,9 @@
       "No Contact - Passive": 0,
       "Non-Disposed Yet": 0
     },
-    "totalBooked": 5,
-    "totalLT": 3,
-    "totalApptBooked": 5,
-    "totalShowed": 1
+    "totalBooked": 6,
+    "totalLT": 4,
+    "totalApptBooked": 4,
+    "totalShowed": 2
   }
 }
