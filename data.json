@@ -212,10 +212,10 @@
   },
   "Sep 2026": {
     "dispositions": {
-      "Contact - Live Transfer": 25,
-      "Not Disposed": 28,
+      "Contact - Live Transfer": 26,
+      "Not Disposed": 29,
       "Contact - Dead": 3,
-      "Contact - Passive": 12,
+      "Contact - Passive": 13,
       "No Contact - Passive": 3,
       "Contact - Appointment Booked": 8,
       "Contact - Wrong Number": 2,
@@ -224,7 +224,7 @@
       "Non-Disposed Yet": 0
     },
     "totalBooked": 22,
-    "totalLT": 34,
+    "totalLT": 35,
     "totalApptBooked": 13,
     "totalShowed": 10
   }
