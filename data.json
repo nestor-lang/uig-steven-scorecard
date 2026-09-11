@@ -213,19 +213,19 @@
   "Sep 2026": {
     "dispositions": {
       "Contact - Live Transfer": 26,
-      "Not Disposed": 29,
-      "Contact - Dead": 3,
-      "Contact - Passive": 13,
-      "No Contact - Passive": 3,
-      "Contact - Appointment Booked": 8,
+      "Not Disposed": 28,
+      "Contact - Dead": 5,
+      "Contact - Passive": 15,
+      "No Contact - Passive": 6,
+      "Contact - Appointment Booked": 11,
       "Contact - Wrong Number": 2,
       "Contact - Callback (Short-Term)": 1,
       "Duplicate Entry - Delete": 1,
       "Non-Disposed Yet": 0
     },
-    "totalBooked": 22,
+    "totalBooked": 27,
     "totalLT": 35,
-    "totalApptBooked": 13,
-    "totalShowed": 10
+    "totalApptBooked": 17,
+    "totalShowed": 11
   }
 }
