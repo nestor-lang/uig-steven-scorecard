@@ -213,7 +213,7 @@
   "Sep 2026": {
     "dispositions": {
       "Contact - Live Transfer": 26,
-      "Not Disposed": 28,
+      "Not Disposed": 34,
       "Contact - Dead": 5,
       "Contact - Passive": 15,
       "No Contact - Passive": 6,
@@ -223,9 +223,9 @@
       "Duplicate Entry - Delete": 1,
       "Non-Disposed Yet": 0
     },
-    "totalBooked": 27,
+    "totalBooked": 29,
     "totalLT": 35,
     "totalApptBooked": 17,
-    "totalShowed": 11
+    "totalShowed": 12
   }
 }
