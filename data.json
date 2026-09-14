@@ -213,11 +213,11 @@
   "Sep 2026": {
     "dispositions": {
       "Contact - Live Transfer": 27,
-      "Not Disposed": 45,
+      "Not Disposed": 56,
       "Contact - Dead": 5,
       "Contact - Passive": 15,
       "No Contact - Passive": 7,
-      "Contact - Appointment Booked": 11,
+      "Contact - Appointment Booked": 10,
       "Contact - Wrong Number": 2,
       "Contact - Callback (Short-Term)": 1,
       "Duplicate Entry - Delete": 1,
@@ -225,7 +225,7 @@
     },
     "totalBooked": 33,
     "totalLT": 37,
-    "totalApptBooked": 19,
+    "totalApptBooked": 18,
     "totalShowed": 14
   }
 }
