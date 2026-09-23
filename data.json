@@ -214,18 +214,18 @@
     "dispositions": {
       "Contact - Live Transfer": 47,
       "Contact - Callback (Short-Term)": 5,
-      "Contact - Dead": 8,
-      "Contact - Passive": 32,
+      "Contact - Dead": 10,
+      "Contact - Passive": 36,
       "No Contact - Passive": 10,
-      "Not Disposed": 70,
-      "Contact - Appointment Booked": 28,
+      "Not Disposed": 68,
+      "Contact - Appointment Booked": 30,
       "Contact - Wrong Number": 8,
       "Duplicate Entry - Delete": 1,
       "Non-Disposed Yet": 0
     },
-    "totalBooked": 66,
-    "totalLT": 62,
-    "totalApptBooked": 37,
-    "totalShowed": 31
+    "totalBooked": 74,
+    "totalLT": 64,
+    "totalApptBooked": 40,
+    "totalShowed": 34
   }
 }
