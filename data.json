@@ -214,10 +214,10 @@
     "dispositions": {
       "Contact - Live Transfer": 49,
       "Contact - Callback (Short-Term)": 5,
-      "Contact - Dead": 10,
+      "Contact - Dead": 11,
       "Contact - Passive": 40,
       "No Contact - Passive": 10,
-      "Not Disposed": 73,
+      "Not Disposed": 79,
       "Contact - Appointment Booked": 32,
       "Contact - Wrong Number": 9,
       "Duplicate Entry - Delete": 1,
@@ -226,6 +226,6 @@
     "totalBooked": 85,
     "totalLT": 67,
     "totalApptBooked": 43,
-    "totalShowed": 35
+    "totalShowed": 36
   }
 }
