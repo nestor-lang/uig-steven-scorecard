@@ -217,15 +217,15 @@
       "Contact - Dead": 12,
       "Contact - Passive": 40,
       "No Contact - Passive": 10,
-      "Not Disposed": 88,
-      "Contact - Appointment Booked": 31,
+      "Not Disposed": 84,
+      "Contact - Appointment Booked": 32,
       "Contact - Wrong Number": 9,
       "Duplicate Entry - Delete": 1,
       "Non-Disposed Yet": 0
     },
-    "totalBooked": 88,
-    "totalLT": 68,
-    "totalApptBooked": 43,
-    "totalShowed": 40
+    "totalBooked": 89,
+    "totalLT": 69,
+    "totalApptBooked": 45,
+    "totalShowed": 41
   }
 }
